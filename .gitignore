@@ -5,7 +5,10 @@ node_modules/
 
 # Testing
 coverage/
-
+# Environment files
+.env
+.env.*
+!.env.example
 # Production
 dist/
 build/

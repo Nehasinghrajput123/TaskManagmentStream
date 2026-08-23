@@ -2,7 +2,6 @@
 
 This document outlines the RESTful API endpoints for the **Project Management & Collaboration Tool**.
 
-Interactive OpenAPI/Swagger documentation is available at `/api-docs` when the backend is running.
 
 ---
 

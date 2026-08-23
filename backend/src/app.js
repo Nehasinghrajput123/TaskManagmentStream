@@ -2,8 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
-const swaggerUi = require('swagger-ui-express');
-const swaggerSpec = require('./config/swagger');
+
 
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -31,22 +30,17 @@ app.use(
   })
 );
 
-// Logging
-if (process.env.NODE_ENV !== 'test') {
-  app.use(morgan('dev'));
-}
+
 
 // Request body parsers
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Swagger API Documentation
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-// Health Check
-app.get('/api/health', (req, res) => {
-  res.status(200).json({ success: true, message: 'Server is healthy', timestamp: new Date() });
-});
+// // Health Check
+// app.get('/api/health', (req, res) => {
+//   res.status(200).json({ success: true, message: 'Server is healthy', timestamp: new Date() });
+// });
 
 // API Routes
 app.use('/api/auth', authRoutes);
